@@ -5,5 +5,5 @@ import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
 class NewsAppApplication : Application() {
-    // You can add onCreate logic here if needed later
+
 }

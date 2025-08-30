@@ -1,13 +1,10 @@
 package com.wp7367.newsapp.ui_layer.screen
 
 import android.util.Log
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Warning // Added for error state
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -31,6 +28,7 @@ fun HomeUi(myViewModel: MyViewModel ) {
     val newsResultState by myViewModel.newsState
 
     val state = newsResultState
+    
 
 
     Box(modifier = Modifier.fillMaxSize()) {
@@ -62,6 +60,8 @@ fun HomeUi(myViewModel: MyViewModel ) {
 @Composable
 fun NewsArticleCard(article: Article) {
 
+    Log.d("NewsArticleCard", "Image URL: ${article.urlToImage}")
+
     Card(
         modifier = Modifier.fillMaxWidth(),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
@@ -75,6 +75,10 @@ fun NewsArticleCard(article: Article) {
                     .crossfade(true)
                     .build(),
                 contentDescription = "Article Image",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(200.dp), // Add this line to specify height
+                contentScale = ContentScale.Crop // Add contentScale for better image rendering
             )
 
 
