@@ -1,7 +1,7 @@
-package com.wp7367.newsapp.network.di
+package com.wp7367.newsapp.di
 
-import com.wp7367.newsapp.Const.BASE_URL
-import com.wp7367.newsapp.network.ApiServices
+import com.wp7367.newsapp.data.remote.api.ApiServices
+import com.wp7367.newsapp.utils.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -9,7 +9,6 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class) // Provides dependencies for the entire app lifecycle
@@ -25,7 +24,7 @@ object NetworkModule {
 
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(Constants.BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
