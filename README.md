@@ -30,7 +30,8 @@ com.wp7367.newsapp
 ```
 
 ## 🔑 Setup & Installation
-1. Clone the repository: `git clone https://github.com/yourusername/NewsApp.git`
+1. Clone the repository:
+   
 2. Get your API Key from [NewsAPI.org](https://newsapi.org/).
 3. Open `local.properties` in the root folder and add:
    ```properties
